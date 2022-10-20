@@ -1,13 +1,16 @@
-import Logo from '@/assets/logo.png';
-import HelloWorld from '@/components/HelloWorld/HelloWorld';
+import { Menubar } from 'primereact/menubar';
+
+import { ReactComponent as Logo } from '@/assets/logo/logo-no-background.svg';
+import { MainPage } from '@/pages';
 
 import styles from './App.module.scss';
 
-export default function App() {
+export function App() {
   return (
     <main className={styles.main}>
-      <img className={styles.logo} alt="React logo" width="400px" src={Logo} />
-      <HelloWorld msg="Hello React + TypeScript + Vite" />
+      <Menubar start={<Logo className={styles.logo} />} />
+
+      <MainPage />
     </main>
   );
 }

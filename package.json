@@ -6,13 +6,14 @@
     "url": "https://github.com/fabien-ml"
   },
   "scripts": {
+    "analyze": "npm run build && source-map-explorer 'dist/assets/*.js'",
     "build": "npm run typecheck && vite build",
     "commit": "git-cz",
-    "dev": "vite",
     "format": "prettier . --write --ignore-path .gitignore && git update-index --again",
     "lint": "eslint . --ext .ts,.tsx --fix --ignore-path .gitignore",
     "prepare": "husky install",
     "serve": "npm run build && vite preview --port 3000",
+    "start": "vite",
     "test:e2e": "start-server-and-test serve http://127.0.0.1:3000/ 'cypress open'",
     "test:e2e:ci": "start-server-and-test serve http://127.0.0.1:3000/ 'cypress run'",
     "test:unit": "jest --watch",
@@ -36,6 +37,8 @@
     }
   },
   "dependencies": {
+    "primeicons": "^6.0.1",
+    "primereact": "^8.6.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -44,6 +47,7 @@
     "@commitlint/config-conventional": "^17.0.2",
     "@commitlint/cz-commitlint": "^17.0.0",
     "@cypress/vite-dev-server": "^3.0.0",
+    "@nabla/vite-plugin-eslint": "^1.4.1",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^14.2.1",
@@ -79,9 +83,12 @@
     "prettier": "^2.7.1",
     "sass": "^1.55.0",
     "sort-package-json": "^1.57.0",
+    "source-map-explorer": "^2.5.3",
     "start-server-and-test": "^1.14.0",
     "ts-jest": "^28.0.5",
     "typescript": "^4.7.4",
-    "vite": "^2.9.12"
+    "vite": "^2.9.12",
+    "vite-plugin-checker": "^0.5.1",
+    "vite-plugin-svgr": "^2.2.2"
   }
 }
